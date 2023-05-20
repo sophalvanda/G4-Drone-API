@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Farmer;
+use App\Models\Farm;
 use Illuminate\Http\Request;
 
-class FarmerController extends Controller
+class FarmController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class FarmerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Farmer $farmer)
+    public function show(Farm $farm)
     {
         //
     }
@@ -34,7 +34,7 @@ class FarmerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Farmer $farmer)
+    public function update(Request $request, Farm $farm)
     {
         //
     }
@@ -42,7 +42,7 @@ class FarmerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Farmer $farmer)
+    public function destroy(Farm $farm)
     {
         //
     }
