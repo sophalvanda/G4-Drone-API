@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +24,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function Plan(): HasMany
+    {
+        return $this->hasMany(Plan::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

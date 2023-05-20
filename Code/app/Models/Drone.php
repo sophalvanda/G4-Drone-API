@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 class Drone extends Model
 {
@@ -15,4 +17,12 @@ class Drone extends Model
         'payload-capacity',
         'user_id'
     ];
+    public function Instruction(): HasMany
+    {
+        return $this->hasMany(Instruction::class);
+    }
+    public function Map(): HasMany
+    {
+        return $this->hasMany(Map::class);
+    }
 }

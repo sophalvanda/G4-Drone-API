@@ -5,32 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany as RelationsHasMany;
 
-class Map extends Model
+class Instruction extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'image_url',
-        'farm_id',
         'drone_id',
-        'location_id'
+        'plan_id'
     ];
     public function Drone(): BelongsTo
     {
         return $this->belongsTo(Drone::class);
     }
-    public function Farm(): BelongsTo
-    {
-        return $this->belongsTo(Farm::class);
-    }
     public function Plan(): BelongsTo
     {
         return $this->belongsTo(Plan::class);
     }
-    public function Location(): BelongsTo
-    {
-        return $this->belongsTo(Location::class);
-    }
-    
 }

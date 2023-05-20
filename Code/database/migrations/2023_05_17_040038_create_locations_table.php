@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('city');
-            $table->string('province');
+            $table->integer('latitude');
+            $table->integer('longitude');
             $table->timestamps();
         });
     }
