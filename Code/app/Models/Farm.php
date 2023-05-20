@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Farm extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'latitude',
+        'longitude',
+        'plan_id',
+        'user_id'
+    ];
 }

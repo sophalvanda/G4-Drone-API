@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Drone extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'type',
+        'battery',
+        'payload-capacity',
+        'user_id'
+    ];
 }

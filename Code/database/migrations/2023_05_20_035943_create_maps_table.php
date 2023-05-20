@@ -15,16 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image_url');
-
             $table->unsignedBigInteger('farm_id');
             $table->foreign('farm_id')->references('id')->on('farms')->onDelete('cascade');
-
             $table->unsignedBigInteger('drone_id');
             $table->foreign('drone_id')->references('id')->on('drones')->onDelete('cascade');
-            
             $table->unsignedBigInteger('location_id');
             $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
-            
             $table->timestamps();
         });
     }
