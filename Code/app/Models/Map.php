@@ -10,7 +10,6 @@ class Map extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id',
         'name',
         'image_url',
         'farm_id',
