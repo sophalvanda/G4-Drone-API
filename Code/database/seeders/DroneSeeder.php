@@ -18,21 +18,24 @@ class DroneSeeder extends Seeder
                 "type" => "Sensing",
                 "battery" => 80,
                 "payload-capacity" => 100,
-                "user_id" => 1
+                "user_id" => 1,
+                "location_id" => 1
             ],
             [
                 "name" => "G4-D02",
                 "type" => "Maping",
                 "battery" => 90,
                 "payload-capacity" => 100,
-                "user_id" => 2
+                "user_id" => 2,
+                "location_id" => 2
             ],
             [
                 "name" => "G4-D03",
                 "type" => "Maping",
                 "battery" => 100,
                 "payload-capacity" => 100,
-                "user_id" => 3
+                "user_id" => 3,
+                "location_id" => 3
             ],
         ];
         foreach ($drones as $drone) {
