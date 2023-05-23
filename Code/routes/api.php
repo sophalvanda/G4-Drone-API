@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DroneController;
+use App\Http\Controllers\MapController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,8 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/drone',([DroneController::class,'store']));
     Route::get('/drone/{id}',([DroneController::class,'show']));
     Route::get('/dronelocation/{id}',([DroneController::class,'showLocation']));
+    // Map routes
+    Route::get('/maps',([MapController::class,'index']));
 });
 // register routes
 Route::get('/farmers',([AuthController::class,'getAllFarmers']));

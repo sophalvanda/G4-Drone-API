@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\MapResource;
 use App\Models\Map;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,9 @@ class MapController extends Controller
      */
     public function index()
     {
-        //
+        $map = Map::all();
+        $map = MapResource::collection($map);
+        return response()->json(['success' =>true, 'map' => $map],200);
     }
 
     /**
@@ -26,9 +29,9 @@ class MapController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Map $map)
+    public function show(Request $id)
     {
-        //
+        $map = Map::all();
     }
 
     /**

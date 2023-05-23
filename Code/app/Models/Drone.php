@@ -15,7 +15,7 @@ class Drone extends Model
         'name',
         'type',
         'battery',
-        'payload-capacity',
+        'payload_capacity',
         'user_id',
         'location_id',
     ];
@@ -30,5 +30,16 @@ class Drone extends Model
     public function location(): BelongsTo
     {
         return $this->belongsTo(Location::class);
+    }
+    public static function drone($request) {
+        $drone = Drone::create([
+            'name' => $request->name,
+            'type' => $request->type,
+            'battery' => $request->battery,
+            'payload_capacity' => $request->payload_capacity,
+            'user_id' => $request->user_id,
+            'location_id' => $request->location
+        ]);
+        return $drone;
     }
 }

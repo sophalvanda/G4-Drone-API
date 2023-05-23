@@ -17,7 +17,7 @@ class DroneSeeder extends Seeder
                 "name" => "G4-D01",
                 "type" => "Sensing",
                 "battery" => 80,
-                "payload-capacity" => 100,
+                "payload_capacity" => 100,
                 "user_id" => 1,
                 "location_id" => 1
             ],
@@ -25,7 +25,7 @@ class DroneSeeder extends Seeder
                 "name" => "G4-D02",
                 "type" => "Maping",
                 "battery" => 90,
-                "payload-capacity" => 100,
+                "payload_capacity" => 100,
                 "user_id" => 2,
                 "location_id" => 2
             ],
@@ -33,7 +33,7 @@ class DroneSeeder extends Seeder
                 "name" => "G4-D03",
                 "type" => "Maping",
                 "battery" => 100,
-                "payload-capacity" => 100,
+                "payload_capacity" => 100,
                 "user_id" => 3,
                 "location_id" => 3
             ],
