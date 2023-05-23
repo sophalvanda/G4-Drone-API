@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DroneController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,8 +22,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logout',([AuthController::class,'logout']));
+    // drone routes
+    Route::get('/drones',([DroneController::class,'index']));
+    Route::post('/drone',([DroneController::class,'store']));
+    Route::get('/drone/{id}',([DroneController::class,'show']));
+    Route::get('/dronelocation/{id}',([DroneController::class,'showLocation']));
 });
 // register routes
 Route::get('/farmers',([AuthController::class,'getAllFarmers']));
 Route::post('/register',([AuthController::class,'register']));
 Route::post('/login',([AuthController::class,'login']));
+
+
+
+
