@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('battery');
             $table->string('payload-capacity');
             $table->foreignId('user_id')->constrained(table:'users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('location_id')->constrained(table:'locations')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
