@@ -15,7 +15,8 @@ class Drone extends Model
         'type',
         'battery',
         'payload-capacity',
-        'user_id'
+        'location_id',
+        'user_id',
     ];
     public function Instruction(): HasMany
     {

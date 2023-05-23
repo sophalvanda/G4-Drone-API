@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -18,20 +19,8 @@ class AuthController extends Controller
         $farmer = User::all();
         return response()->json(['Request' =>'Success','data' =>$farmer],200);
     }
-    public function register(Request $request) {
-        $validator = Validator::make($request->all(),[
-            'name' => 'required|string|max:50',
-            'email' => 'required|unique:users,email',
-            'password' => 'required'
-        ]);
-        if ($validator->failed()){
-            return response()->json([$validator->errors()],401);
-        }
-        $farmer = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
-        ]);
+    public function register(AuthRequest $request) {
+        $farmer = User::farmer($request);
         $token = $farmer->createToken('API Token',['select','create','delete','update'])->plainTextToken;
         return response()->json(['Massage' => 'register successful','data'=> $farmer,'token' => $token],200);
     }
