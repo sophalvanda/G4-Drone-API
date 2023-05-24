@@ -38,8 +38,9 @@ class Drone extends Model
             'battery' => $request->battery,
             'payload_capacity' => $request->payload_capacity,
             'user_id' => $request->user_id,
-            'location_id' => $request->location
+            'location_id' => $request->location_id
         ]);
         return $drone;
     }
+    
 }
