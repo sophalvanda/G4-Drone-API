@@ -36,17 +36,15 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/dronelocation/{id}',([DroneController::class,'showLocation']));
     // Map routes
     Route::get('/maps',([MapController::class,'index']));
-<<<<<<< HEAD
     Route::get('/maps/{province_name}/{farm_id}',([MapController::class,'show']));
+    Route::delete('/maps/{province_name}/{farm_id}',([MapController::class,'deleteImageFarm']));
     // Farm routes
     Route::get('farms',([FarmController::class,'index']));
-=======
 
     // plans routes
 
     Route::get('/plans',([PlanController::class,'index']));
     Route::post('/plans/plan',([PlanController::class,'store']));
->>>>>>> 766a3ea6decb5be82f9c8d51d50b8ac8ef3ba792
 });
 // register routes
 Route::get('/farmers',([AuthController::class,'getAllFarmers']));
