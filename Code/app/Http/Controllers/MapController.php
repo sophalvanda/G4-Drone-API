@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\FarmerResource;
+use App\Http\Resources\FarmResource;
+use App\Http\Resources\MapProvinceResource;
 use App\Http\Resources\MapResource;
+use App\Http\Resources\ProvinceResource;
+use App\Models\Farm;
 use App\Models\Map;
+use App\Models\Province;
 use Illuminate\Http\Request;
 
 class MapController extends Controller
@@ -29,9 +35,19 @@ class MapController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $id)
+    public function show(string $province_name ,string $farm_id)
     {
-        $map = Map::all();
+        $province = Province::where('name',$province_name)->first();
+        if (!isset($province)) {
+            return response()->json(['success' => false,'province' => 'Provinc not found'],412);
+        }
+        $farms = $province->farms->where('id',$farm_id)->first();
+        // return $farms;
+        // return $farms;
+        if (empty($farms)) {
+            return response()->json(['success' => false,'farm_id' => 'Farm id not found'],412);
+        }
+        return response()->json(['success' => true,'data' => MapResource::collection($farms->Map)],412);
     }
 
     /**

@@ -17,7 +17,6 @@ class Plan extends Model
         'datetime',
         'area',
         'user_id',
-        'location_id',
     ];
     public function Instruction(): HasMany
     {

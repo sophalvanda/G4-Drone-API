@@ -16,20 +16,17 @@ class FarmSeeder extends Seeder
         $farms = [
             [
                 'name'=>'Farm1',
-                'province'=>'BTB',
-                'plan_id'=>1,
+                'province_id'=>1,
                 'user_id'=>1,
             ],
             [
                 'name'=>'Farm2',
-                'province'=>'BMC',
-                'plan_id'=>2,
+                'province_id'=>2,
                 'user_id'=>2,
             ],
             [
                 'name'=>'Farm3',
-                'province'=>'BMC',
-                'plan_id'=>3,
+                'province_id'=>3,
                 'user_id'=>3,
             ]
             

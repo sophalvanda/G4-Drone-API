@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('area');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('location_id');
-            $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
 
             $table->timestamps();
         });

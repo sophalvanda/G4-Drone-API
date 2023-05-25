@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DronePlane;
+use App\Models\Province;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DronePlaneController extends Controller
+class ProvinceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +27,7 @@ class DronePlaneController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Province $province)
     {
         //
     }
@@ -34,7 +35,7 @@ class DronePlaneController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,  $id)
+    public function update(Request $request, Province $province)
     {
         //
     }
@@ -42,7 +43,7 @@ class DronePlaneController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy( $id)
+    public function destroy(Province $province)
     {
         //
     }

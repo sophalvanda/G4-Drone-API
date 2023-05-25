@@ -12,8 +12,7 @@ class Farm extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'province',
-        'plan_id',
+        'province_id',
         'user_id'
     ];
     public function Map(): HasMany
@@ -23,5 +22,9 @@ class Farm extends Model
     public function Plan(): BelongsTo
     {
         return $this->belongsTo(Plan::class);
+    }
+    public function province(): BelongsTo
+    {
+        return $this->belongsTo(Province::class);
     }
 }

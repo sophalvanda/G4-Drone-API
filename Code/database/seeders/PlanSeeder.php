@@ -21,7 +21,6 @@ class PlanSeeder extends Seeder
                 'datetime' => '2022-01-01 12:00:00',
                 'area' => 'Area A',
                 'user_id' => 1,
-                'location_id' => 1,
             ],
             [
                 'name' => 'Plan B',
@@ -30,7 +29,6 @@ class PlanSeeder extends Seeder
                 'datetime' => '2022-02-01 12:00:00',
                 'area' => 'Area B',
                 'user_id' => 2,
-                'location_id' => 2,
             ],
             [
                 'name' => 'Plan C',
@@ -39,7 +37,6 @@ class PlanSeeder extends Seeder
                 'datetime' => '2022-03-01 12:00:00',
                 'area' => 'Area C',
                 'user_id' => 3,
-                'location_id' => 3,
             ],
         ];
         foreach ($plans as $plan) {
