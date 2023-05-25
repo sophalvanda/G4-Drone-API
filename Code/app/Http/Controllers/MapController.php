@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MapRequest;
 use App\Http\Resources\FarmerResource;
 use App\Http\Resources\FarmResource;
 use App\Http\Resources\MapProvinceResource;
@@ -27,9 +28,10 @@ class MapController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MapRequest $request)
     {
-        //
+        $maps = Map::createMap($request);
+        return response()->json(['Massage' => 'Image created', 'maps' => $maps],200);
     }
 
     /**

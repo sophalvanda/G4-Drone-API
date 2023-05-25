@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\InstuctionRequest;
+use App\Http\Resources\InstructionResource;
 use App\Models\DronePlane;
+use App\Models\Instruction;
 use Illuminate\Http\Request;
 
-class DronePlaneController extends Controller
+class InstructionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,6 +16,10 @@ class DronePlaneController extends Controller
     public function index()
     {
         //
+        $instuction = Instruction::all();
+        $instuction = InstructionResource::collection($instuction);
+        return response()->json(['message'=>'Request successfully!','data'=>$instuction]);
+        
     }
 
     /**
@@ -34,9 +41,14 @@ class DronePlaneController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,  $id)
+    public function update(Request $request,$id)
     {
         //
+        $instuction = Instruction::findOrFail($id);
+        $instuction->status = $request->input('status');
+        $instuction->save();
+        return response()->json(['message'=>'Update successfully!','data'=>$instuction]);
+        
     }
 
     /**
