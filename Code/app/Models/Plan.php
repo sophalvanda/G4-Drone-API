@@ -38,5 +38,16 @@ class Plan extends Model
     {
         return $this->hasMany(Map::class);
     }
-    
+    public static function plan($request) {
+        $plan = Plan::create([
+            "name"=> $request->name,
+            "type"=> $request->type,
+            "description"=> $request->description,
+            "datetime"=> $request->datetime,
+            "area"=> $request->area,
+            "user_id" => $request->user_id,
+            "location_id" => $request->location_id,
+        ]);
+        return $plan;
+    }
 }
