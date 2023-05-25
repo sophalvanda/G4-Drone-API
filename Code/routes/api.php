@@ -5,6 +5,7 @@ use App\Http\Controllers\DroneController;
 use App\Http\Controllers\FarmController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\InstructionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,17 +37,17 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/dronelocation/{id}',([DroneController::class,'showLocation']));
     // Map routes
     Route::get('/maps',([MapController::class,'index']));
-<<<<<<< HEAD
     Route::get('/maps/{province_name}/{farm_id}',([MapController::class,'show']));
     // Farm routes
     Route::get('farms',([FarmController::class,'index']));
-=======
 
     // plans routes
-
     Route::get('/plans',([PlanController::class,'index']));
     Route::post('/plans/plan',([PlanController::class,'store']));
->>>>>>> 766a3ea6decb5be82f9c8d51d50b8ac8ef3ba792
+
+    //insruction routes
+    Route::get('/insructions',([InstructionController::class,'index']));
+    Route::put('/insruction/{id}',([InstructionController::class,'update']));
 });
 // register routes
 Route::get('/farmers',([AuthController::class,'getAllFarmers']));

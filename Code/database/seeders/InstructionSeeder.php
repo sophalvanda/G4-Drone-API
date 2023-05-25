@@ -16,14 +16,17 @@ class InstructionSeeder extends Seeder
         $instructions = [
             [ 
                 'drone_id'=>1,
+                'status'=>'Running',
                 'plan_id'=>1,
             ],
             [
                 'drone_id'=>2,
+                'status'=>'Done',
                 'plan_id'=>2,
             ],
             [
                 'drone_id'=>3,
+                'status'=>'Running',
                 'plan_id'=>3,
             ]
             

@@ -63,9 +63,7 @@ class DroneController extends Controller
         'user_id' => 'sometimes|required|exists:users,id',
         'location_id' => 'sometimes|required|exists:locations,id',
     ]);
-
     $drone = Drone::find($id);
-
     $drone->update($validatedData);
     return response()->json(['message' => 'Update successful!', 'data' => $drone], 200);
 }
