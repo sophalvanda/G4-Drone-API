@@ -34,7 +34,7 @@ class FarmController extends Controller
     {
         $farm = Farm::find($id);
         if (!isset($farm)) {
-            return response()->json(['request' => false, 'Massage' => 'Farm' . $id. 'does not exist']);
+            return response()->json(['request' => false, 'Massage' => 'Farm id ' . $id. ' does not exist']);
         }
         $farm = FarmResource::collection($farm);
         return $farm;
@@ -47,7 +47,7 @@ class FarmController extends Controller
     {
         $farm = Farm::find($id);
         if (!isset($farm)) {
-            return response()->json(['request' => false, 'Massage' => 'Farm' . $id. 'does not exist']);
+            return response()->json(['request' => false, 'Massage' => 'Farm id ' . $id. ' does not exist']);
         }
         $farm = Farm::updateFarm($farm);
         return $farm;
@@ -62,6 +62,7 @@ class FarmController extends Controller
         if (!isset($farm)) {
             return response()->json(['request' => false, 'Massage' => 'Farm' . $id. 'does not exist']);
         }
+        $farm->delete();
         return response()->json(['delete' => true]);
     }
 }

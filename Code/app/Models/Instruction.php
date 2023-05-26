@@ -23,4 +23,19 @@ class Instruction extends Model
     {
         return $this->belongsTo(Plan::class);
     }
+    public static function createInstruction($request) {
+        $instructions = Instruction::create([
+            'status' => $request->status,
+            'drone_id' => $request->drone_id,
+            'plan_id' => $request->plan_id
+        ]);
+    } 
+    public static function updateInstruction($request) {
+        $instructions = Instruction::updated([
+            'status' => $request->status,
+            'drone_id' => $request->drone_id,
+            'plan_id' => $request->plan_id
+        ]);
+        return $instructions;
+    }
 }

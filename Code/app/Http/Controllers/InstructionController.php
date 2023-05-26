@@ -25,9 +25,11 @@ class InstructionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(InstuctionRequest $request)
     {
-        //
+        $instuction = Instruction::createInstruction($request);
+        $instuction = InstructionResource::collection($instuction);
+        return response()->json(['message'=>'create instruction successfully!','data' => $instuction],200);
     }
 
     /**
@@ -35,7 +37,11 @@ class InstructionController extends Controller
      */
     public function show($id)
     {
-        //
+        $instuction = Instruction::find($id);
+        if (!isset($instuction)) {
+            return response()->json(['request' => false,'message' => 'Instruction id '.$id. ' does not exist']);
+        }
+        return $instuction;
     }
 
     /**
@@ -43,7 +49,12 @@ class InstructionController extends Controller
      */
     public function update(Request $request,$id)
     {
-        
+        $instuction = Instruction::find($id);
+        if (!isset($instuction)) {
+            return response()->json(['request' => false, 'Massage' => 'Instruction id ' . $id. ' does not exist']);
+        }
+        $instuction = Instruction::updateInstruction($instuction);
+        return $instuction;
     }
 
     /**
@@ -51,6 +62,11 @@ class InstructionController extends Controller
      */
     public function destroy( $id)
     {
-        //
+        $instuction = Instruction::find($id);
+        if (!isset($instuction)) {
+            return response()->json(['request' => false, 'Massage' => 'Instruction id ' . $id. ' does not exist']);
+        }
+        $instuction->delete();
+        return response()->json(['delete' => true]);
     }
 }

@@ -47,6 +47,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('farms',([FarmController::class,'store']));
     Route::get('farms/{id}',([FarmController::class,'show']));
     Route::put('farms/{id}',([FarmController::class,'update']));
+    Route::delete('farms/{id}',([FarmController::class,'destroy']));
 
     // plans routes
     Route::get('/plans',([PlanController::class,'index']));
@@ -55,8 +56,10 @@ Route::middleware('auth:sanctum')->group(function(){
 
     //insruction routes
     Route::get('/instructions',([InstructionController::class,'index']));
+    Route::post('/instructions',([InstructionController::class,'store']));
+    Route::get('/insructions/{id}',([InstructionController::class,'show']));
     Route::put('/instruction/{id}',([InstructionController::class,'update']));
-    Route::get('/insructions',([InstructionController::class,'index']));
+    Route::delete('/instruction/{id}',([InstructionController::class,'destroy']));
 
     //provinces routes
     Route::post('provinces',([ProvinceController::class,'store']));
