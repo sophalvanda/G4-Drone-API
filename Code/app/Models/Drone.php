@@ -19,7 +19,7 @@ class Drone extends Model
         'user_id',
         'location_id',
     ];
-    public function Instruction(): HasMany
+    public function instructions(): HasMany
     {
         return $this->hasMany(Instruction::class);
     }

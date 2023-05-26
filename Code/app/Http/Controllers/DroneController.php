@@ -6,6 +6,7 @@ use App\Http\Requests\DroneRequest;
 use App\Http\Resources\DroneLocationResource;
 use App\Http\Resources\DroneResource;
 use App\Models\Drone;
+use App\Models\Instruction;
 use Illuminate\Http\Request;
 
 class DroneController extends Controller
@@ -74,5 +75,12 @@ class DroneController extends Controller
     public function destroy(Drone $drone)
     {
         //
+    }
+    public function updateInstruction(Request $request,$id) {
+        $drone = Drone::find($id)->instructions;
+        $instruction_id = $drone[0]["id"];
+        $instruction = Instruction::find($instruction_id);
+        $instruction->update($request->all());
+        return response()->json(['message' => 'Update successful!','data'=> $instruction],200);
     }
 }

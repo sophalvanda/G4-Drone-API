@@ -43,11 +43,6 @@ class InstructionController extends Controller
      */
     public function update(Request $request,$id)
     {
-        //
-        $instuction = Instruction::findOrFail($id);
-        $instuction->status = $request->input('status');
-        $instuction->save();
-        return response()->json(['message'=>'Update successfully!','data'=>$instuction]);
         
     }
 
