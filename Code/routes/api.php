@@ -6,6 +6,7 @@ use App\Http\Controllers\FarmController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\InstructionController;
+use App\Http\Controllers\ProvinceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,8 @@ Route::middleware('auth:sanctum')->group(function(){
     // Map routes
     Route::get('/maps',([MapController::class,'index']));
     Route::get('/maps/{province_name}/{farm_id}',([MapController::class,'show']));
+    Route::delete('/maps/{province_name}/{farm_id}',([MapController::class,'deleteImageFarm']));
+    Route::post('maps',([MapController::class,'store']));
     // Farm routes
     Route::get('farms',([FarmController::class,'index']));
 
@@ -49,6 +52,11 @@ Route::middleware('auth:sanctum')->group(function(){
     //insruction routes
     Route::get('/instructions',([InstructionController::class,'index']));
     Route::put('/instruction/{id}',([InstructionController::class,'update']));
+    Route::get('/insructions',([InstructionController::class,'index']));
+    Route::put('/insruction/{id}',([InstructionController::class,'update']));
+
+    //provinces routes
+    Route::post('provinces',([ProvinceController::class,'store']));
 });
 // register routes
 Route::get('/farmers',([AuthController::class,'getAllFarmers']));

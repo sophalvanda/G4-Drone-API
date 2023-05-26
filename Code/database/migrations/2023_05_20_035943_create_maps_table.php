@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('image_url');
+            $table->string('image');
             $table->unsignedBigInteger('farm_id');
             $table->foreign('farm_id')->references('id')->on('farms')->onDelete('cascade');
             $table->unsignedBigInteger('drone_id');

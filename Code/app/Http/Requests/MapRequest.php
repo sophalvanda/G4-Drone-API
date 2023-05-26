@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class ProvinceRequest extends FormRequest
+class MapRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,10 @@ class ProvinceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|unique:provinces,name',
+            'image' => 'required',
+            'farm_id' => 'required|integer',
+            'drone_id' => 'required|integer',
+            'location_id' => 'required|integer'
         ];
     }
 }

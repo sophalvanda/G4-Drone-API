@@ -10,8 +10,7 @@ class Map extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'image_url',
+        'image',
         'farm_id',
         'drone_id',
         'location_id'
@@ -31,6 +30,15 @@ class Map extends Model
     public function Location(): BelongsTo
     {
         return $this->belongsTo(Location::class);
+    }
+    public static function createMap($request){
+        $maps = Map::create([
+            'image' => $request->image,
+            'farm_id' => $request->farm_id,
+            'drone_id' => $request->drone_id,
+            'location_id' => $request->location_id
+        ]);
+        return $maps;
     }
     
 }
