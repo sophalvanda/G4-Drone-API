@@ -17,10 +17,10 @@ class FarmResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            // 'province_id' => $this->province_id,
-            // 'province_name' =>$this->province->name,
+            'province_id' => $this->province_id,
+            'province_name' =>$this->province->name,
             'user_id' => $this->user_id,
-            // 'map' => MapResource::collection($this->Map),
+            'map' => MapResource::collection($this->Map),
         ];
     }
 }

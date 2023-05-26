@@ -41,9 +41,12 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/maps',([MapController::class,'index']));
     Route::get('/maps/{province_name}/{farm_id}',([MapController::class,'show']));
     Route::delete('/maps/{province_name}/{farm_id}',([MapController::class,'deleteImageFarm']));
-    Route::post('maps',([MapController::class,'store']));
+    Route::post('maps/{province_name}/{farm_id}',([MapController::class,'store']));
     // Farm routes
     Route::get('farms',([FarmController::class,'index']));
+    Route::post('farms',([FarmController::class,'store']));
+    Route::get('farms/{id}',([FarmController::class,'show']));
+    Route::put('farms/{id}',([FarmController::class,'update']));
 
     // plans routes
     Route::get('/plans',([PlanController::class,'index']));

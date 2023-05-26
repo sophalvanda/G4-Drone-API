@@ -27,4 +27,20 @@ class Farm extends Model
     {
         return $this->belongsTo(Province::class);
     }
+    public static function createFarm($request) {
+        $farms = Farm::create([
+            'name' => $request->name,
+            'province_id' => $request->province_id,
+            'user_id' => $request->user_id
+        ]);
+        return $farms;
+    }
+    public static function updateFarm($request) {
+        $farms = Farm::updated([
+            'name' => $request->name,
+            'province_id' => $request->province_id,
+            'user_id' => $request->user_id
+        ]);
+        return $farms;
+    }
 }
