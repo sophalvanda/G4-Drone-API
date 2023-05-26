@@ -22,6 +22,7 @@ class PlanResource extends JsonResource
             "datetime"=> $this->datetime,
             "area"=> $this->area,
             "user_id" => $this->user_id,
+            
         ];
     }
 }

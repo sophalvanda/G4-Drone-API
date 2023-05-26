@@ -33,9 +33,12 @@ class PlanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Plan $plan)
+    public function show($id)
     {
         //
+        $plan = Plan::Find($id);
+        $plan = new PlanResource($plan);
+        return response()->json(['message'=>'Create successfully!','data'=>$plan]);
     }
 
     /**

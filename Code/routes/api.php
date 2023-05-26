@@ -48,8 +48,11 @@ Route::middleware('auth:sanctum')->group(function(){
     // plans routes
     Route::get('/plans',([PlanController::class,'index']));
     Route::post('/plans/plan',([PlanController::class,'store']));
+    Route::get('/plan/{id}',([PlanController::class,'show']));
 
     //insruction routes
+    Route::get('/instructions',([InstructionController::class,'index']));
+    Route::put('/instruction/{id}',([InstructionController::class,'update']));
     Route::get('/insructions',([InstructionController::class,'index']));
 
     //provinces routes
