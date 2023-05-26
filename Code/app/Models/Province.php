@@ -16,4 +16,10 @@ class Province extends Model
     {
         return $this->hasMany(Farm::class);
     }
+    public static function createProvince($request){
+        $province = Province::create([
+            'name' => $request->name
+        ]);
+        return $province;
+    }
 }

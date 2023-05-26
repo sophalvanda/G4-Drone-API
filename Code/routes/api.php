@@ -6,6 +6,7 @@ use App\Http\Controllers\FarmController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\InstructionController;
+use App\Http\Controllers\ProvinceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,9 @@ Route::middleware('auth:sanctum')->group(function(){
     //insruction routes
     Route::get('/insructions',([InstructionController::class,'index']));
     Route::put('/insruction/{id}',([InstructionController::class,'update']));
+
+    //provinces routes
+    Route::post('provinces',([ProvinceController::class,'store']));
 });
 // register routes
 Route::get('/farmers',([AuthController::class,'getAllFarmers']));
