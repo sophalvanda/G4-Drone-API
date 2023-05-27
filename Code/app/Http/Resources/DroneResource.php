@@ -22,7 +22,7 @@ class DroneResource extends JsonResource
             'payload_capacity' => $this->payload_capacity,
             'user_id' => $this->user_id,
             'location_id' => $this->location_id,
-            'instruction' =>InstructionResource::collection($this->Instruction),
+            'instruction' =>InstructionResource::collection($this->instructions),
             // 'instructions' => InstructionResource::collection($this->Instruction),
         ];
     }

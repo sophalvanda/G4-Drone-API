@@ -30,14 +30,14 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logout',([AuthController::class,'logout']));
     // drone routes
     Route::get('/drones',([DroneController::class,'index']));
-    Route::post('/drone',([DroneController::class,'store']));
-    Route::get('/drone/{id}',([DroneController::class,'show']));
+    Route::post('/drones',([DroneController::class,'store']));
+    Route::get('/drones/{id}',([DroneController::class,'show']));
     Route::put('drones/{id}',([DroneController::class,'updateInstruction']));
 
     /// http://127.0.0.1:8000/api/droneupdate/1
     Route::put('/droneupdate/{id}',([DroneController::class,'update']));
     //
-    Route::get('/dronelocation/{id}',([DroneController::class,'showLocation']));
+    Route::get('/drones/{id}/{location_id}',([DroneController::class,'showLocation']));
     // Map routes
     Route::get('/maps',([MapController::class,'index']));
     Route::get('/maps/{province_name}/{farm_id}',([MapController::class,'show']));
@@ -53,7 +53,7 @@ Route::middleware('auth:sanctum')->group(function(){
     // plans routes
     Route::get('/plans',([PlanController::class,'index']));
     Route::post('/plans/plan',([PlanController::class,'store']));
-    Route::get('/plan/{id}',([PlanController::class,'show']));
+    Route::get('/plans/{id}',([PlanController::class,'show']));
 
     //insruction routes
     Route::get('/instructions',([InstructionController::class,'index']));

@@ -21,7 +21,8 @@ class DroneLocationResource extends JsonResource
             'battery' => $this->battery,
             'payload_capacity' => $this->payload_capacity,
             'user_id' => $this->user_id,
-            'location' =>new LocationResource($this->location)
+            'location_id' => $this->location_id,
+            // 'location' =>new LocationResource($this->location)
         ];
     }
 }

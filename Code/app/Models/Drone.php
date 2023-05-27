@@ -27,9 +27,9 @@ class Drone extends Model
     {
         return $this->hasMany(Map::class);
     }
-    public function location(): BelongsTo
+    public function location(): HasMany
     {
-        return $this->belongsTo(Location::class);
+        return $this->hasMany(Location::class);
     }
     public static function drone($request) {
         $drone = Drone::create([

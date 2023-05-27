@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DroneRequest;
 use App\Http\Resources\DroneLocationResource;
 use App\Http\Resources\DroneResource;
+use App\Http\Resources\LocationResource;
 use App\Models\Drone;
 use App\Models\Instruction;
+use App\Models\Location;
 use Illuminate\Http\Request;
 
 class DroneController extends Controller
@@ -43,11 +45,13 @@ class DroneController extends Controller
         return Response()->json(['message'=>'Show successfully!','data'=>$drone],200);
 
     }
-    public function showLocation($id)
+    public function showLocation($id,$location_id)
     {
         $drone = Drone::find($id);
-        $drone = new DroneLocationResource($drone);
-        return Response()->json(['message'=>'Show successfully!','data'=>$drone],200);
+        $location_id = $drone['location_id'];
+        $location = Location::find($location_id);
+        $location = new LocationResource($location);
+        return Response()->json(['message'=>'Show successfully!','data'=>$location],200);
 
     }
 
