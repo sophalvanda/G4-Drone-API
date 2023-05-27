@@ -38,9 +38,12 @@ class DroneController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show( $id)
+    public function show($id)
     {
         $drone = Drone::find($id);
+        if (!isset($drone)) {
+            return response()->json(['Massage' => 'Drone id '.$id. ' does not exist'],412);
+        }
         $drone =new DroneResource($drone);
         return Response()->json(['message'=>'Show successfully!','data'=>$drone],200);
 
@@ -50,6 +53,9 @@ class DroneController extends Controller
         $drone = Drone::find($id);
         $location_id = $drone['location_id'];
         $location = Location::find($location_id);
+        if (!isset($location)) {
+            return Response()->json(['message'=>'Location id' .$location_id. ' does not exist'],412);
+        }
         $location = new LocationResource($location);
         return Response()->json(['message'=>'Show successfully!','data'=>$location],200);
 
@@ -69,6 +75,9 @@ class DroneController extends Controller
         'location_id' => 'sometimes|required|exists:locations,id',
     ]);
     $drone = Drone::find($id);
+    if (!isset($drone)) {
+        return response()->json(['request'=>false,'message'=> 'Drone id '.$id.' does not exist'],413);
+    }
     $drone->update($validatedData);
     return response()->json(['message' => 'Update successful!', 'data' => $drone], 200);
 }
@@ -81,6 +90,10 @@ class DroneController extends Controller
         //
     }
     public function updateInstruction(Request $request,$id) {
+        $drone = Drone::find($id);
+        if (!isset($drone)) {
+            return response()->json(['request'=>false,'message' => 'Drone id '.$id.' does not exist'],412);
+        }
         $drone = Drone::find($id)->instructions;
         $instruction_id = $drone[0]["id"];
         $instruction = Instruction::find($instruction_id);

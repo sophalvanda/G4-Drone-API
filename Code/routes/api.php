@@ -32,6 +32,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/drones',([DroneController::class,'index']));
     Route::post('/drones',([DroneController::class,'store']));
     Route::get('/drones/{id}',([DroneController::class,'show']));
+    Route::put('/drones/drone/{id}',([DroneController::class,'update']));
     Route::put('drones/{id}',([DroneController::class,'updateInstruction']));
 
     /// http://127.0.0.1:8000/api/droneupdate/1
@@ -53,7 +54,7 @@ Route::middleware('auth:sanctum')->group(function(){
     // plans routes
     Route::get('/plans',([PlanController::class,'index']));
     Route::post('/plans/plan',([PlanController::class,'store']));
-    Route::get('/plans/{id}',([PlanController::class,'show']));
+    Route::get('/plans/{plan_name}',([PlanController::class,'show']));
 
     //insruction routes
     Route::get('/instructions',([InstructionController::class,'index']));

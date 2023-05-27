@@ -26,19 +26,22 @@ class PlanController extends Controller
     public function store(PlanRequest $request)
     {
         //
-        $plan = Plan::plan($request);
+        $plan = Plan::createPlan($request);
+        $plan =new PlanResource($plan);
         return response()->json(['message'=>'Create successfully!','data'=>$plan]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($plan_name)
     {
-        //
-        $plan = Plan::Find($id);
+        $plan = Plan::where('name',$plan_name)->first();
+        if (!isset($plan)) {
+            return response()->json(['message'=>'Name '. $plan_name. ' does not exist'],412);
+        }
         $plan = new PlanResource($plan);
-        return response()->json(['message'=>'Create successfully!','data'=>$plan]);
+        return response()->json(['message'=>'successfully!','data'=>$plan]);
     }
 
     /**

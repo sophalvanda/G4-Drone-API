@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Instruction;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -22,6 +23,7 @@ class PlanResource extends JsonResource
             "datetime"=> $this->datetime,
             "area"=> $this->area,
             "user_id" => $this->user_id,
+            'instructions'=>$this->instructions,
             
         ];
     }

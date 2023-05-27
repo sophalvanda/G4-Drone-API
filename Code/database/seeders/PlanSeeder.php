@@ -15,7 +15,7 @@ class PlanSeeder extends Seeder
     {
         $plans = [
             [
-                'name' => 'Plan A',
+                'name' => 'PlanA',
                 'type' => 'Wheat',
                 'description' => 'A field of wheat',
                 'datetime' => '2022-01-01 12:00:00',
@@ -23,7 +23,7 @@ class PlanSeeder extends Seeder
                 'user_id' => 1,
             ],
             [
-                'name' => 'Plan B',
+                'name' => 'PlanB',
                 'type' => 'Rice',
                 'description' => 'A paddy field of rice',
                 'datetime' => '2022-02-01 12:00:00',
@@ -31,7 +31,7 @@ class PlanSeeder extends Seeder
                 'user_id' => 2,
             ],
             [
-                'name' => 'Plan C',
+                'name' => 'PlanC',
                 'type' => 'Corn',
                 'description' => 'A field ofcorn',
                 'datetime' => '2022-03-01 12:00:00',

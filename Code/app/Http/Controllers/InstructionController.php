@@ -27,9 +27,9 @@ class InstructionController extends Controller
      */
     public function store(InstuctionRequest $request)
     {
-        $instuction = Instruction::createInstruction($request);
-        $instuction = InstructionResource::collection($instuction);
-        return response()->json(['message'=>'create instruction successfully!','data' => $instuction],200);
+        $instruction = Instruction::createInstruction($request);
+        $instruction =InstructionResource::collection($instruction);
+        return response()->json(['message'=>'create instruction successfully!','data' => $instruction],200);
     }
 
     /**

@@ -31,16 +31,14 @@ class MapController extends Controller
      */
     public function store(MapRequest $request,string $province_name ,string $farm_id)
     {
-        // $maps = Map::createMap($request);
-        // return response()->json(['Massage' => 'Image created', 'maps' => $maps],200);
+
         $province = Province::where('name',$province_name)->first();
         if (!isset($province)) {
-            return response()->json(['success' => false,'province' => 'Provinc not found'],412);
+            return response()->json(['success' => false,'province' =>$province_name. ' does not exist'],412);
         }
         $farms = $province->farms->where('id',$farm_id)->first();
-        // return $farms['id'];
         if (empty($farms)) {
-            return response()->json(['success' => false,'farm_id' => 'Farm id not found'],412);
+            return response()->json(['success' => false,'farm_id' => 'Farm id '.$farm_id. ' does not exist'. ' in '.$province_name],412);
         }
         $maps = MapResource::collection($farms->Map);  
         $maps = Map::createMap($request);
@@ -55,11 +53,11 @@ class MapController extends Controller
     {
         $province = Province::where('name',$province_name)->first();
         if (!isset($province)) {
-            return response()->json(['success' => false,'province' => 'Provinc not found'],412);
+            return response()->json(['success' => false,'province' =>$province_name. ' does not exist'],412);
         }
         $farms = $province->farms->where('id',$farm_id)->first();
         if (empty($farms)) {
-            return response()->json(['success' => false,'farm_id' => 'Farm id not found'],412);
+            return response()->json(['success' => false,'farm_id' => 'Farm id '.$farm_id. ' does not exist'. ' in '.$province_name],412);
         }
         $maps = MapResource::collection($farms->Map);
         return response()->json(['success' => true,'data'=> $maps],412);
@@ -67,11 +65,11 @@ class MapController extends Controller
     public function deleteImageFarm(string $province_name ,string $farm_id){
         $province = Province::where('name',$province_name)->first();
         if (!isset($province)) {
-            return response()->json(['success' => false,'province' => 'Provinc not found'],412);
+            return response()->json(['success' => false,'province' =>$province_name. ' does not exist'],412);
         }
         $farms = $province->farms->where('id',$farm_id)->first();
         if (empty($farms)) {
-            return response()->json(['success' => false,'farm_id' => 'Farm id not found'],412);
+            return response()->json(['success' => false,'farm_id' => 'Farm id '.$farm_id. ' does not exist'. ' in '.$province_name],412);
         }
         $maps = MapResource::collection($farms->Map);
         if (!empty($maps->all())) {

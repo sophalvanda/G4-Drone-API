@@ -17,7 +17,7 @@ class InstructionResource extends JsonResource
         return [
             'status' => $this->status,
             'drone_id' => $this->drone_id,
-            'plan' =>new PlanResource($this->Plan),
+            'plan_id' =>$this->plan_id,
         ];
     }
 }
