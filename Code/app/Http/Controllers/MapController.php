@@ -61,7 +61,8 @@ class MapController extends Controller
         if (empty($farms)) {
             return response()->json(['success' => false,'farm_id' => 'Farm id not found'],412);
         }
-        return response()->json(['success' => true,'data' => MapResource::collection($farms->Map)],412);
+        $maps = MapResource::collection($farms->Map);
+        return response()->json(['success' => true,'data'=> $maps],412);
     }
     public function deleteImageFarm(string $province_name ,string $farm_id){
         $province = Province::where('name',$province_name)->first();

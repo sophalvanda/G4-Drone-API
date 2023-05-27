@@ -6,6 +6,7 @@ use App\Http\Controllers\FarmController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\InstructionController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ProvinceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,12 @@ Route::middleware('auth:sanctum')->group(function(){
 
     //provinces routes
     Route::post('provinces',([ProvinceController::class,'store']));
+    // Location routes
+    Route::get('/locations',([LocationController::class,'index']));
+    Route::post('/locations',([LocationController::class,'store']));
+    Route::get('/locations/{id}',([LocationController::class,'show']));
+    Route::put('/locations{id}',([LocationController::class,'update']));
+    Route::delete('/locations{id}',([LocationController::class,'destroy']));
 });
 // register routes
 Route::get('/farmers',([AuthController::class,'getAllFarmers']));

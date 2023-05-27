@@ -18,10 +18,10 @@ class MapResource extends JsonResource
             'id' => $this->id,
             'image' => $this->image,
             'farm_id' => $this->farm_id,
-            // 'farm_name' => $this->name,
+            'farm_name' => $this->name,
             'location_id' => $this->location_id,
-            'drone_id' => new DroneResource($this->Drone),
-            'farm' => new FarmResource($this->Farm)
+            // 'drone_id' => new DroneResource($this->Drone),
+            // 'farm' => new FarmResource($this->Farm)
         ];
     }
 }

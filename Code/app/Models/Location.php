@@ -27,4 +27,18 @@ class Location extends Model
     {
         return $this->hasMany(Location::class);
     }
+    public static function createLocation($request) {
+        $locations = Location::create([
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+        ]);
+        return $locations;
+    }
+    public static function updateLocation($request) {
+        $locations = Location::updated([
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+        ]);
+        return $locations;
+    }
 }
